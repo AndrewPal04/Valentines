@@ -2,12 +2,18 @@
 <html>
 <head>
     <title>You Said Yes!</title>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
             background-color: #ffccd5;
-            margin-top: 50px;
+            margin: 0;
+            padding-top: 50px;
+            overflow: hidden;
         }
 
         h1 {
@@ -19,7 +25,6 @@
             width: 600px;
             margin-top: 30px;
             border-radius: 15px;
-
         }
     </style>
 </head>
@@ -29,6 +34,36 @@
     <h2>You made me the happiest person ever 🥰</h2>
 
     <img src="YesIMG.png" alt="Valentine Image">
+
+    <script>
+        window.onload = function() {
+
+            const celebrationSound = new Audio("celebration.mp3");
+            celebrationSound.play();
+
+            confetti({
+                particleCount: 200,
+                spread: 120,
+                origin: { y: 0.6 }
+            });
+
+            setTimeout(() => {
+                confetti({
+                    particleCount: 100,
+                    angle: 60,
+                    spread: 80,
+                    origin: { x: 0 }
+                });
+
+                confetti({
+                    particleCount: 100,
+                    angle: 120,
+                    spread: 80,
+                    origin: { x: 1 }
+                });
+            }, 300);
+        };
+    </script>
 
 </body>
 </html>
